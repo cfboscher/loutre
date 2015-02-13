@@ -1,0 +1,22 @@
+----- Acces a la bd en ligne de commande ------
+
+Pour acceder a la BD appele "testBD" en ligne de commande, il faut lancer :
+		mysql -u root -p -D testBD
+Une fois cette commande executee, il vous sera demande un mot de passe. Je vous l'ai
+communique. 
+IL EST D'UNE IMPORTANCE CAPITALE DE NE PAS LE DIVULGUER DANS LA MESURE OU
+C'EST LE MOT DE PASSE DE LA BASE DE DONNEE.
+
+----- Acces a la bd en graphique ------
+
+Connectez vous a http://adresseDuRaspberry/phpmyadmin. Vous allez tomber sur une
+page de login. Le login/motDePasse je vous l'ai communique.
+IL EST D'UNE IMPORTANCE CAPITALE DE NE PAS LE DIVULGUER DANS LA MESURE OU
+C'EST LE MOT DE PASSE DE LA BASE DE DONNEE.
+
+
+
+------- Mister Connard de la semaine --------
+
+Semaine 1 : Cedric, car il est a l'initiative du "Mister Connard"
+

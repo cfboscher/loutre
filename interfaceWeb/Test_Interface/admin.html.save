@@ -1,0 +1,25 @@
+<p>Bienvenue sur la plateforme d'administration.<p>
+
+
+ <button onclick="add();">Ajouter.</button>
+ <button onclick="delete();">Supprimer.</button>
+ <button onclick="modify();">Modifier.</button>
+
+
+
+<script type="text/javascript">
+   function modify(){
+      document.location.href="modify.html";
+   }
+
+   function delete(){
+      document.location.href="delete.html';      
+   }
+
+
+   function add(){
+      document.location.href="add.html';
+   }
+</script>
+
+
