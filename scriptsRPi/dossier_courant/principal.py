@@ -31,6 +31,7 @@ prixUnitaire = 42
 #(si pas de deuxième lecture avant tempoLect2, annulation)
 tempoLect1 = 1
 tempoLect2 = 5
+unitePaiement=" groseilles "
 
 
 ########################################################################
@@ -49,10 +50,10 @@ mifare=nxppy.Mifare()
 ### FONCTIONS PERSONNELLES
 ########################################################################
 
-#Ecriture parallèle dans le terminal et dans le fichier de log
+#Ecriture parallèle dans le terminal et dans le fichier de journal
 def lprint (chaine):
 	print chaine
-	#Ouverture initiale du fichier de log
+	#Ouverture initiale du fichier de journal
 	f = open("loutre.log","a")    
 	now = datetime.datetime.now().ctime()
 	f.write( "[" + str(now) + "] : " + chaine + "\n")
@@ -71,11 +72,11 @@ while 1:
             uid = mifare.select()
             lprint("Read UID : " + str(uid))
             ### Insérer appel procédure mySQL pour l'affichage ###
-            argentRestant = 500 #Remplacer par le montant du backend
+            argentRestant = 500 #Remplacer par le montant de la fin de dos
             lcd.clear()
             lcd.message("Argent restant : \n")
             lprint("Argent restant : \n")
-            lcd.message(str(argentRestant) + nomMonnaie + "\n")
+            lcd.message(str(argentRestant) + nomMonnaieyes)
             lprint(str(argentRestant) + nomMonnaie)
             sleep(tempoLect1)
             
@@ -94,11 +95,11 @@ while 1:
 
 					if (uid2==uid):
 						a = false
-						### Insérer appel procédure MySQL  pour le prélèvement ###
+						### Insérer appel procédure MySQL (mon langage de requete structuré )  pour le prélèvement ###
 						lcd.clear()
-						lcd.message(str(prixUnitaire)+" groseilles\n")
-						lcd.message("ont été prélevées\n")
-						lprint(str(prixUnitaire)+" groseilles ont été prélevées")
+						lcd.message(str(prixUnitaire)+unitePaiement+"\n")
+						lcd.message("ont été prélevées.")
+						lprint(str(prixUnitaire)+unitePaiement+"ont été prélevées")
 						
                 #Tant que on ne lit pas de carte, ne rien faire et recommencer
 				except nxppy.SelectError:
