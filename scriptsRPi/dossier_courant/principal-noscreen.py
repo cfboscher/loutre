@@ -49,14 +49,17 @@ unitePaiement=" groseilles "
 ########################################################################
 
 #Ecriture parallèle dans le terminal et dans le fichier de journal
+#Usage : lprint(chaine) sans mettre de \n dans chaine ou après : 
+# le \n est inclus automatiquement dans l'écriture dans les log
+# et est inutile pour l'affichage dans un terminal avec print 
 def lprint (chaine):
 	print chaine
 	#Ouverture initiale du fichier de journal
 	f = open("loutre.log","a")    
 	now = datetime.datetime.now().ctime()
 	f.write( "[" + str(now) + "] : " + chaine + "\n")
-	#Ouvrir et fermer le fichier Ã  chaque fois permet une mÃ j du fichier
-	# mÃªme si le programme tourne
+	#Ouvrir et fermer le fichier à chaque fois permet une màj du fichier
+	# même si le programme tourne
 	f.close()
 
 
@@ -83,8 +86,7 @@ while 1:
 		
 		a = True
 		while a:
-			print "Boucle 2"
-                        #Après expiration de la tempo la transaction est annulée
+            #Après expiration de la tempo la transaction est annulée
 			now=datetime.datetime.now()
 			if (now - instantLecture1) > datetime.timedelta(seconds = tempoLect2):
 				break
