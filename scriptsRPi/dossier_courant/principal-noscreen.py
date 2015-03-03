@@ -28,9 +28,9 @@ import nxppy
 prixUnitaire = 42
 
 #Temps d'attente lors de la lecture, en secondes
-#(premiÃ¨re lecture : affichage du solde, puis temporisation)
-#(deuixÃ¨me lecture : validation de la transaction)
-#(si pas de deuxiÃ¨me lecture avant tempoLect2, annulation)
+#(première lecture : affichage du solde, puis temporisation)
+#(deuixème lecture : validation de la transaction)
+#(si pas de deuxième lecture avant tempoLect2, annulation)
 tempoLect1 = 1
 tempoLect2 = 5
 unitePaiement=" groseilles "
@@ -40,7 +40,7 @@ unitePaiement=" groseilles "
 ### INITIALISATION
 ########################################################################
 
-#Initialisation de l'Ã©cran LCD
+#Initialisation de l'écran LCD
 #lcd.begin(16, 1)
 
 
@@ -48,7 +48,7 @@ unitePaiement=" groseilles "
 ### FONCTIONS PERSONNELLES
 ########################################################################
 
-#Ecriture parallÃ¨le dans le terminal et dans le fichier de journal
+#Ecriture parallèle dans le terminal et dans le fichier de journal
 def lprint (chaine):
 	print chaine
 	#Ouverture initiale du fichier de journal
@@ -69,14 +69,12 @@ while 1:
 		#Ouverture du lecteur NFC
 		mifare=nxppy.Mifare()
 		uid = mifare.select()
-		print "Lecture 1"
-		print uid
 		lprint("Read UID : " + str(uid))
-		### InsÃ©rer appel procÃ©dure mySQL pour l'affichage ###
+		### Insérer appel procédure mySQL pour l'affichage ###
 		argentRestant = 500 #Remplacer par le montant de la fin de dos
 		#lcd.clear()
 		#lcd.message("Argent restant : \n")
-		lprint("Argent restant : \n")
+		lprint("Argent restant : ")
 		#lcd.message(str(argentRestant) + nomMonnaieyes)
 		lprint(str(argentRestant) + unitePaiement)
 		sleep(tempoLect1)
@@ -86,7 +84,7 @@ while 1:
 		a = True
 		while a:
 			print "Boucle 2"
-                        #AprÃ¨s expiration de la tempo la transaction est annulÃe
+                        #Après expiration de la tempo la transaction est annulée
 			now=datetime.datetime.now()
 			if (now - instantLecture1) > datetime.timedelta(seconds = tempoLect2):
 				break
@@ -97,11 +95,11 @@ while 1:
 
 				if (uid2==uid):
 					a = False
-					### InsÃ©rer appel procÃ©dure MySQL (mon langage de requete structurÃ© )  pour le prÃ©lÃ¨vement ###
+					### Insérer appel procédure MySQL pour le prélèvement ###
 					#lcd.clear()
 					#lcd.message(str(prixUnitaire)+unitePaiement+"\n")
-					#lcd.message("ont Ã©tÃ© prÃ©levÃ©es.")
-					lprint(str(prixUnitaire)+unitePaiement+"ont Ã©tÃ© prÃ©levÃ©es")
+					#lcd.message("ont été prélevées.")
+					lprint(str(prixUnitaire)+unitePaiement+"ont été prélevées")
 					
 			#Tant que on ne lit pas de carte, ne rien faire et recommencer
 			except nxppy.SelectError:
@@ -110,8 +108,6 @@ while 1:
 	#Tant que on ne lit pas de carte, ne rien faire et recommencer
 	except nxppy.SelectError:
 		pass
-	        print "except 1"
-		sleep(1)
 
 
 
