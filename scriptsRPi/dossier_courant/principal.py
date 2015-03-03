@@ -39,6 +39,7 @@ unitePaiement=" groseilles "
 ########################################################################
 
 #Initialisation de l'écran LCD
+lcd=Adafruit_CharLCD()
 lcd.begin(16, 1)
 
 #Ouverture du lecteur NFC
@@ -66,7 +67,6 @@ def lprint (chaine):
 ########################################################################
 
 while 1:
-    
     while 1:
         try:
             uid = mifare.select()

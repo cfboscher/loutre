@@ -7,6 +7,7 @@ while 1:
 
 		# Select the first available tag and return the UID
 		uid = mifare.select()
+		print uid
 
 	except Exception:
 		print('Erreur..')
