@@ -31,8 +31,10 @@ prixUnitaire = 42
 #(première lecture : affichage du solde, puis temporisation)
 #(deuixème lecture : validation de la transaction)
 #(si pas de deuxième lecture avant tempoLect2, annulation)
+#tempoPrelev : temps de la tempo après validation de transaction
 tempoLect1 = 1
 tempoLect2 = 5
+tempoPrelev = 1
 unitePaiement=" groseilles "
 
 
@@ -102,6 +104,7 @@ while 1:
 					#lcd.message(str(prixUnitaire)+unitePaiement+"\n")
 					#lcd.message("ont été prélevées.")
 					lprint(str(prixUnitaire)+unitePaiement+"ont été prélevées")
+					sleep(tempoPrelev)
 					
 			#Tant que on ne lit pas de carte, ne rien faire et recommencer
 			except nxppy.SelectError:
