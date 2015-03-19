@@ -1,0 +1,92 @@
+<hmtl>
+	<head>
+		<title>Admin - LOUTRE</title>
+		<link rel="stylesheet" href="../Ressources/styleLoutre.css" />
+	</head>
+
+	<body >
+		<div id="logo">
+			<img src="../Ressources/LogoLoutre - admin.jpg" alt="Logo Loutre" style="width:800px">
+		</div>
+
+		<div id="menu">
+			<ul id="onglets">
+				<li><a href="Accueil.html"> Accueil </a></li>
+				<li><a href="Evenements.html"> Evenements </a></li>
+				<li><a href="Creation.html"> Créer un compte </a></li>
+				<li class="active"><a href="Gestion.html"> Surveillance Comptes </a></li>
+				<li><a href="Parametres.html"> Paramètres </a></li>
+				<li><a href="../Connexion.html"> Se déconnecter </a></li>
+			</ul>
+		</div>
+
+		<div id="page-wrap">
+			<h1>Gestion des comptes utilisateur!</h1>
+		</div>
+		
+		<div id="page-wrap">
+			Choix du compte :
+			<select>
+				<option value ="sydney">Jacques</option>
+				<option value ="melbourne">Michel</option>
+				<option value ="cromwell">José</option>
+				<option value ="queenstown">Irène</option>
+			</select>
+			<button> Afficher </button>
+			<button> Modifier </button>
+		</div>
+
+			<div id="page-wrap">
+			<h2>Détails des mouvements du compte : </h2>
+			<table id="conso">
+				<tr>
+					<th>Date</th>
+					<th>Opération</th> 
+					<th>Mouvement</th>
+				</tr>
+				<tr>
+					<td>11/03/2015</td>
+					<td>Consommation : café</td> 
+					<td>-00,50€</td>
+				</tr>
+				<tr>
+					<td>09/03/2015</td>
+					<td>Virement vers : Michel</td> 
+					<td>-51,00€</td>
+				</tr>
+				<tr>
+					<td>06/03/2015</td>
+					<td>Virement depuis : Jacquie</td> 
+					<td>+24,00€</td>
+				</tr>
+				<tr>
+					<td>24/02/2015</td>
+					<td>Renflouement des caisses</td> 
+					<td>+12,00€</td>
+				</tr>	
+				<tr>
+					<td>17/02/2015</td>
+					<td>Paiement : Sortie Ski</td> 
+					<td>-54,00€</td>
+				</tr>
+				<tr>
+					<td>16/02/2015</td>
+					<td>Cadeau de bienvenue</td> 
+					<td>+01,00€</td>
+				</tr>
+			</table>
+		</div>
+		
+				<div id="page-wrap">
+		<h2> Ajout d'un mouvement: </h2>
+		<br>
+				Modification de
+				<input type="text" name="montant">
+				€ pour le motif
+				motif suivant : <input type="text" name="montant">
+				
+				<button> Valider le virement </button>
+		</div>
+
+	</body>
+</html>

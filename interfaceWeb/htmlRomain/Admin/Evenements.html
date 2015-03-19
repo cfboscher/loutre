@@ -1,0 +1,92 @@
+<hmtl>
+	<head>
+		<title>Admin - LOUTRE</title>
+		<link rel="stylesheet" href="../Ressources/styleLoutre.css" />
+	</head>
+
+	<body >
+		<div id="logo">
+			<img src="../Ressources/LogoLoutre - admin.jpg" alt="Logo Loutre" style="width:800px">
+		</div>
+
+		<div id="menu">
+			<ul id="onglets">
+				<li ><a href="Accueil.html"> Accueil </a></li>
+				<li class="active"><a href="Evenements.html"> Evenements </a></li>
+				<li><a href="Creation.html"> Créer un compte </a></li>
+				<li><a href="Gestion.html"> Gestion Comptes </a></li>
+				<li><a href="Parametres.html"> Paramètres </a></li>
+				<li><a href="../Connexion.html"> Se déconnecter </a></li>
+			</ul>
+		</div>
+
+		<div id="page-wrap">
+			<h2> Gestion d'un évènement :</h2>
+			Nom de l'événement :
+			<select>
+				<option value ="sydney">WEI (25€)</option>
+				<option value ="melbourne">Sortie SKI (52€)</option>
+				<option value ="cromwell">Bowling (4€)</option>
+				<option value ="queenstown">Hackathon Google (gratuit)</option>
+			</select>
+			<button> Afficher </button>
+			<button> Modifier </button>
+		</div>
+		
+				<div id="page-wrap">
+			<h4>Participants : </h4>
+			<table id="conso">
+				<tr>
+					<th>Date de l'inscription</th>
+					<th>Nom</th> 
+					<th>Commentaires</th>
+				</tr>
+				<tr>
+					<td>11/03/2015</td>
+					<td>Jean DURAND</td> 
+					<td></td>
+				</tr>
+				<tr>
+					<td>09/03/2015</td>
+					<td>Michel JACQUES</td> 
+					<td></td>
+				</tr>
+				<tr>
+					<td>06/03/2015</td>
+					<td>Michèle KOALA</td> 
+					<td></td>
+				</tr>
+				<tr>
+					<td>24/02/2015</td>
+					<td>Irène PAILLIASSON</td> 
+					<td></td>
+				</tr>	
+				<tr>
+					<td>17/02/2015</td>
+					<td>Gérard PATATE</td> 
+					<td>Allergique aux pommes</td>
+				</tr>
+				<tr>
+					<td>16/02/2015</td>
+					<td>Roger CAILLOU</td> 
+					<td></td>
+				</tr>
+			</table>
+		</div>
+		
+		<div id="page-wrap">
+			<h2> Création d'un nouvel événement :</h2>
+			Nom de l'événement :
+			<input type="text" name="nom">
+			Prix :
+			<input type="int" name="montant">
+			<button> Créer un événement </button>
+			<br>
+			Date : 
+			<input type="text" name="description">
+			Description : 
+			<input type="text" name="description">
+		</div>
+
+	</body>
+</html>

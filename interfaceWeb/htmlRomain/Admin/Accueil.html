@@ -1,0 +1,86 @@
+<hmtl>
+	<head>
+		<title>Admin - LOUTRE</title>
+		<link rel="stylesheet" href="../Ressources/styleLoutre.css" />
+	</head>
+
+	<body >
+		<div id="logo">
+			<img src="../Ressources/LogoLoutre - admin.jpg" alt="Logo Loutre" style="width:800px">
+		</div>
+
+		<div id="menu">
+			<ul id="onglets">
+				<li class="active"><a href="Accueil.html"> Accueil </a></li>
+				<li><a href="Evenements.html"> Evenements </a></li>
+				<li><a href="Creation.html"> Créer un compte </a></li>
+				<li><a href="Gestion.html"> Surveillance Comptes </a></li>
+				<li><a href="Parametres.html"> Paramètres </a></li>
+				<li><a href="../Connexion.html"> Se déconnecter </a></li>
+			</ul>
+		</div>
+
+		<div id="page-wrap">
+			<h1>Bonjour admin, c'est l'heure de se mettre au travail!</h1>
+			<h2>Il reste [XX,XX]€ à votre asso</h2>
+		</div>
+
+		<div id="page-wrap">
+			<h2>Détails des mouvements vous concernant : </h2>
+			<table id="conso">
+				<tr>
+					<th>Date</th>
+					<th>Opération</th> 
+					<th>Mouvement</th>
+				</tr>
+				<tr>
+					<td>11/03/2015</td>
+					<td>Consommation : café</td> 
+					<td>-00,50€</td>
+				</tr>
+				<tr>
+					<td>09/03/2015</td>
+					<td>Virement vers : Michel</td> 
+					<td>-51,00€</td>
+				</tr>
+				<tr>
+					<td>06/03/2015</td>
+					<td>Virement depuis : Jacquie</td> 
+					<td>+24,00€</td>
+				</tr>
+				<tr>
+					<td>24/02/2015</td>
+					<td>Renflouement des caisses</td> 
+					<td>+12,00€</td>
+				</tr>	
+				<tr>
+					<td>17/02/2015</td>
+					<td>Paiement : Sortie Ski</td> 
+					<td>-54,00€</td>
+				</tr>
+				<tr>
+					<td>16/02/2015</td>
+					<td>Cadeau de bienvenue</td> 
+					<td>+01,00€</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div id="page-wrap">
+		<h2> Virement vers un utilisateur : </h2>
+		<br>
+				Envoi de
+				<input type="text" name="montant">
+				€ à
+				<select>
+					<option value ="sydney">Jacquie</option>
+					<option value ="melbourne">Michel</option>
+					<option value ="cromwell">Robert</option>
+					<option value ="queenstown">Roger</option>
+				</select>
+				?
+				<button> Valider le virement </button>
+		</div>
+
+	</body>
+</html>
