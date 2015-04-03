@@ -1,0 +1,36 @@
+CREATE TABLE  `Loutre`.`Personne` (
+`ID` INT UNSIGNED NOT NULL ,
+`Nom` VARCHAR( 15 ) NOT NULL ,
+`Prenom` VARCHAR( 15 ) NOT NULL ,
+`Role` TINYINT UNSIGNED NOT NULL ,
+`Solde` FLOAT NOT NULL ,
+`Password` binary(20) not null,
+PRIMARY KEY (  `ID` )
+) ENGINE = INNODB
+
+CREATE TABLE  `Loutre`.`tab_transactions` (
+`ID_Etudiant` INT UNSIGNED NOT NULL ,
+`Montant` FLOAT NOT NULL ,
+`Date_Transaction` DATETIME NOT NULL ,
+INDEX (  `ID_Etudiant` ),
+) ENGINE = INNODB
+
+ALTER TABLE Loutre.`tab_transactions`
+ADD CONSTRAINT fk_id_etudiant
+FOREIGN KEY (`ID_Etudiant`)
+REFERENCES Loutre.Personne(`ID`)
+
+CREATE TRIGGER Loutre.update_solde
+AFTER INSERT ON Loutre.`tab_transactions`
+FOR EACH ROW
+UPDATE Loutre.`Personne` SET `Solde` = `Solde` + NEW.`Montant` WHERE `ID` = NEW.`ID_ETUDIANT`
+
+CREATE TRIGGER Loutre.ajouteDate
+BEFORE INSERT ON Loutre.`tab_transactions`
+FOR EACH ROW
+SET NEW.Date_Transaction = NOW()
+
+
+
+
+
