@@ -31,6 +31,8 @@ FOR EACH ROW
 SET NEW.Date_Transaction = NOW()
 
 
-
+CREATE TABLE  `Loutre`.`parametres` (
+`prix_boisson` INT UNSIGNED NOT NULL ,
+) ENGINE = INNODB
 
 
