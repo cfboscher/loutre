@@ -69,14 +69,23 @@ def lprint (chaine):
 ### BOUCLE PRINCIPALE
 ########################################################################
 
+#TODO: se connecter à la BD
+
+
 while 1:
 	try:
 		#Ouverture du lecteur NFC
 		mifare=nxppy.Mifare()
 		uid = mifare.select()
 		lprint("Read UID : " + str(uid))
-		### Insérer appel procédure mySQL pour l'affichage ###
-		argentRestant = 500 #Remplacer par le montant de la fin de dos
+		
+		## Requete sur BD pour consulter le solde ##
+		#TODO: inclure cette requête comme il faut
+		#SELECT Solde
+		#FROM Personne
+		#WHERE ID=uid
+		
+		argentRestant = 500 #Remplacer par le montant du backend
 		#lcd.clear()
 		#lcd.message("Argent restant : \n")
 		lprint("Argent restant : ")
@@ -99,7 +108,12 @@ while 1:
 
 				if (uid2==uid):
 					a = False
-					### Insérer appel procédure MySQL pour le prélèvement ###
+					
+					### Requete SQL pour le prélèvement ##
+					#TODO: inclure cette requête comme il faut
+					#INSERT INTO tab_transactions (ID_Etudiant,Montant)
+					#VALUES (uid, SELECT - prix_boisson FROM parametres)
+					
 					#lcd.clear()
 					#lcd.message(str(prixUnitaire)+unitePaiement+"\n")
 					#lcd.message("ont été prélevées.")
