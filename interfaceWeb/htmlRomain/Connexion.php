@@ -19,16 +19,21 @@
 			nom:
 			<br><input type="text" name="username">
 			<br>
-			mot de passe:<br><input type="password" name="pass">
+			prenom :
+			<br><input type="text" name = "prenom">
+			<br>
+			mot de passe:
+			<br><input type="password" name="pass">
 			<br>
 			
 			<?php
 			//On récupère les données entrées dans les champs
-			$username = $_POST['username'];
+			$nom = $_POST['username'];
+			$prenom = $_POST['prenom'];
 			$mdp = $_POST['pass'];
 			
 			//On vérifie que les champs ne sont pas vides
-			if(empty($name))
+			if(empty($nom))
 			{
 				//Choisir ce qu'il faut afficher
 				exit();
@@ -39,12 +44,18 @@
 				//Choisir ce qu'il faut afficher
 				exit();
 			}
+			
+			elseif(empty($prenom))
+			{
+				//Choisir ce qu'il faut afficher
+				exit();
+			}
 			//Si tout est bon on lance la requête SQL
 			else
 			{
 				$db = mysql_connect('localhost', 'login', 'password');
 				mysql_select_db('nomdelabase', $db);
-				$sqlConnect = 'SELECT *FROM Personne WHERE UCASE(SUBSTR(Personne.Prenom, 0, 1)) = UCASE(SUBSTR(##LOGIN##,0,1))AND UCASE(SUBSTR(Personne.Nom,1)) = UCASE(SUBSTR(##LOGIN##,1)) AND Personne.Password=##Hash du password##';
+				$sqlConnect = 'SELECT *FROM Personne WHERE UCASE(SUBSTR(Personne.Prenom, 0, 1)) = UCASE(SUBSTR($prenom,0,1))AND UCASE(SUBSTR(Personne.Nom,1)) = UCASE(SUBSTR($nom,1)) AND Personne.Password=$mdp';
 				$reqConnect = mysql_query($sqlConnect);
 			}
 			?>
