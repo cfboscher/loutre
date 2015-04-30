@@ -30,9 +30,19 @@ BEFORE INSERT ON Loutre.`tab_transactions`
 FOR EACH ROW
 SET NEW.Date_Transaction = NOW()
 
+CREATE TABLE IF NOT EXISTS `parametres` (
+  `prix_boisson` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE  `Loutre`.`parametres` (
-`prix_boisson` INT UNSIGNED NOT NULL ,
-) ENGINE = INNODB
+--Rights
+GRANT SELECT (
+`ID` ,  `Solde`
+) ON  `Loutre`.`Personne` TO  'python'@'%';
 
+GRANT INSERT ON `Loutre`.`tab_transactions` TO  'python'@'%';
 
+GRANT SELECT ON `Loutre`.`Personne` TO  'phpuser'@'%';
+GRANT SELECT ON `Loutre`.`Personne` TO  'phpadmin'@'%';
+GRANT INSERT ON `Loutre`.`Personne` TO  'phpadmin'@'%';
+GRANT INSERT ON `Loutre`.`tab_transactions` TO  'phpuser'@'%';
+GRANT INSERT ON `Loutre`.`tab_transactions` TO  'phpadmin'@'%';
