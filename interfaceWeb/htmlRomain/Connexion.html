@@ -15,17 +15,20 @@
 		</div>
 
 		<div id="connexion">
-			nom:
-			<br><input type="text" name="username">
-			<br>
-			prenom :
-			<br><input type="text" name = "prenom">
-			<br>
-			mot de passe:
-			<br><input type="password" name="pass">
-			<br>
+			<form action="TestPHPConnexion.php" method="POST">
+				nom:
+				<br><input type="text" name="username">
+				<br>
+				prenom :
+				<br><input type="text" name = "prenom">
+				<br>
+				mot de passe:
+				<br><input type="password" name="pass">
+				<br>
+				<input type="submit" value="Connexion">
+			</form>
 			
-			<button> Connexion </button>
+			<!--<button> Connexion </button>-->
 		</div>
 			<h3>Accès rapide (phase de tests):</h3>
 			<a href="./Client/Client.html"><button> Client </button></a><br>
