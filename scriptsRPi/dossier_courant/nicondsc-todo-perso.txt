@@ -1,0 +1,4 @@
+-Vérifier que le passage du password pour inscription.py est ok (éventuellement un hash ?)
+-Externaliser toutes les constantes dans un fichier à part
+-Faire un script d'autoconfig
+
