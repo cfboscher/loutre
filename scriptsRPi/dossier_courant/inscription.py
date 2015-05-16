@@ -14,11 +14,12 @@ import os
 
 import datetime
 
+from time import sleep
+
 import nxppy
-#from Adafruit_CharLCD import Adafruit_CharLCD
+from Adafruit_CharLCD import Adafruit_CharLCD
 
 import MySQLdb
-#from MySQLdb.constants import FIELD_TYPE
 
 ########################################################################
 ### CONSTANTES
@@ -31,9 +32,8 @@ soldeDepart=5.0
 ########################################################################
 
 #Initialisation de l'écran LCD
-#lcd.begin(16, 1)
-
-#my_conv = { FIELD_TYPE.FLOAT: float }
+lcd = Adafruit_CharLCD()
+lcd.begin(16, 1)
 
 ########################################################################
 ### FONCTIONS PERSONNELLES
@@ -64,11 +64,17 @@ db = MySQLdb.connect(host="localhost", user="python", passwd="jambeo", db="Loutr
 
 while 1:
 	try:
+		lcd.clear()
+		lcd.message(" Inscription a\n     LOUTRE")
+		sleep(0.1)
 		#Ouverture du lecteur NFC
 		mifare=nxppy.Mifare()
 		uid = mifare.select()
 		lprint("Lecture UID pour inscription : " + str(uid))
 		
+		lcd.clear()
+		lcd.message("Nouvel util :\n"+str(uid))
+
 		#Entr�ee clavier es infos du nouvel utilisateur
 		print("Veuillez rentrez les informations demandés : ")
 		nom = raw_input("Nom : ")
@@ -81,7 +87,7 @@ while 1:
 		commande+="'"+str(uid)+"','"+str(nom)+"','"+str(prenom)+"',"+str(1)+","+str(soldeDepart)+",'"+str(password)+"')"
 
 	        #Test
-		lprint(commande)
+		#lprint(commande)
 
 		c = db.cursor()
 		c.execute(commande)
@@ -90,6 +96,10 @@ while 1:
 		##### Fin de requete #####
 
 		lprint("Nouvel utilisateur : " + nom + " " + prenom)
+
+		lcd.clear()
+		lcd.message("  Bravo !\nInscr reussie")
+		sleep(5)
 									
 	#Tant que on ne lit pas de carte, ne rien faire et recommencer
 	except nxppy.SelectError:
