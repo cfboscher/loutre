@@ -8,9 +8,9 @@
 						
 			echo "Nom entré : ".$_POST[username];
 			
-			echo '<form method="post" action="/Client/client.html"
+			echo <form method="post" action="/Client/client.html"
 					<input type="hidden" name="nom" value=$_POST[username]>
-				 </form>';
+				 </form>;
 				 
 			header('Location: /marie/Client/Client.html');      
 	?>
