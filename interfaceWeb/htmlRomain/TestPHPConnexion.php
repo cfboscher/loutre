@@ -4,6 +4,6 @@
 			$prenom = .$_POST['prenom'];
 			$mdp = .$_POST['pass'];
 			
-			echo .$name;
+			echo "coucou : " .$name;
 			
 		?>
