@@ -1,9 +1,14 @@
-		<?php
-			//On récupère les données entrées dans les champs
-			$nom = .$_POST['username'];
-			$prenom = .$_POST['prenom'];
-			$mdp = .$_POST['pass'];
+<html>	
+
+	<head>
+		<title>LOUTRE</title>
+	</head>
+	
+	<?php
 			
-			echo "coucou : " .$name;
 			
-		?>
+			echo "coucou : ";
+			
+	?>
+		
+</html>
