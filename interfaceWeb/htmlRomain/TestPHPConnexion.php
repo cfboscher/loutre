@@ -6,7 +6,7 @@
 	
 	<?php
 						
-			echo = "Nom entré : ".$_POST[username];
+			echo "Nom entré : ".$_POST[username];
 			
 	?>
 		
