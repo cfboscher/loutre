@@ -7,7 +7,6 @@
 	<?php
 						
 			echo "coucou : ";
-			echo = .$_POST["username"];
 			
 	?>
 		
