@@ -12,7 +12,7 @@
 					<input type="hidden" name="nom" value=$_POST[username]>
 				 </form>';
 				 
-			header('Location: /Client/Client.html');      
+			header('Location: /marie/Client/Client.html');      
 	?>
 		
 </html>
