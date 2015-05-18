@@ -5,9 +5,11 @@
 	</head>
 	
 	<?php
-			
-			
+						
 			echo "coucou : ";
+			$nom = $_POST['username'];
+			echo $nom;
+
 			
 	?>
 		
