@@ -9,12 +9,8 @@
 			echo "Nom entré : ".$_POST[username];
 			
 			$nom = $_POST[username];
-			
-			echo '<form method="post" action="/marie/Client/Client.html">
-					<input type="hidden" name="nom" value="'.$nom.'">
-				 </form>';
-				
-			header('Location: /marie/Client/Client.html'); 	
 	?>
 		
+	   <a href="/marie/Client/Client.html?nom=Marie">voyons la suite</a> 
+	
 </html>
