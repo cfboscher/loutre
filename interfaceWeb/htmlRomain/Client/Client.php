@@ -13,7 +13,7 @@
 
 		<div id="page-wrap">
 			<h1>Bonjour <?php echo $_POST[name]; ?>, heureux de vous revoir!</h1>
-			<h2>Il vous reste <?php echo $_POST[value]; ?> groseilles sur votre compte.</h2>
+			<h2>Il vous reste <?php echo $_POST[identity]; ?> groseilles sur votre compte.</h2>
 		</div>
 
 		<a href="../Connexion.html"><button> Deconnexion </button></a><br>
