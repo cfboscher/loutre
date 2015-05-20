@@ -15,9 +15,10 @@
 		<form method="post" action="/marie/Client/Client.html">
 
 			<p><input type="hidden" name="coucou" value="Marie"/></p>
+			<input type="submit" value="Continuer">
+
 
 		</form>
 		
-	   <a href="/marie/Client/Client.html>Cliquez pour continuer...</a> 
 	
 </html>
