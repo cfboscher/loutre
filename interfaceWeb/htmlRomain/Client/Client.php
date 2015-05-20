@@ -16,7 +16,7 @@
 			<h2>Il vous reste <?php echo $_POST[value]; ?> groseilles sur votre compte.</h2>
 		</div>
 
-		<a href="./Client/Client.html"><button> Deconnexion </button></a><br>
+		<a href="../Connexion.html"><button> Deconnexion </button></a><br>
 
 
 	</body>
