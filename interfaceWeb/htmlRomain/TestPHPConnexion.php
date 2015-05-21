@@ -5,8 +5,6 @@
 	</head>
 	
 	<?php
-			ini_set('display_errors', 1);
-			error_reporting(E_ALL);
 						
 			echo "Nom d'utilisateur : ".$_POST[username];
 			
@@ -21,7 +19,7 @@
 			$base = mysql_connect ('localhost', 'phpadmin', 'groseillenu');
 			mysql_select_db ('Loutre', $base) ;
 			// lancement de la requete
-			$sql = 'SELECT * FROM Personne';
+			$sql = 'SELECT solde, nom FROM Personne';
 			mysql_query ($sql) or die ('Erreur SQL !'.$sql.'<br />'.mysql_error());
 
 			mysql_close();
