@@ -15,6 +15,10 @@
 			// lancement de la requete
 			$sql = "SELECT solde, nom FROM Personne WHERE Personne.nom='$nom'";
 			mysql_query ($sql) or die ('Erreur SQL !'.$sql.'<br />'.mysql_error());
+			
+			if(mysql_num_rows($reponse)){
+				echo "Il y a qqch";
+			}
 
 			mysql_close();
 	?>
