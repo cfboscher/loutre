@@ -16,7 +16,7 @@
 		<div id="page-wrap">
 		<h2> Virement vers un utilisateur : </h2>
 		<br>
-				<form>
+				<form method="post" action="/AjoutArgent.php">
 				Montant : 
 				<input type="text" name="montant">
 				En provenance de :
