@@ -21,7 +21,7 @@
 			$base = mysql_connect ('localhost', 'phpadmin', 'groseillenu');
 			mysql_select_db ('Loutre', $base) ;
 			// lancement de la requete
-			$sql = 'SELECT * FROM Personne Personne.Nom = '$nom'';
+			$sql = 'SELECT * FROM Personne';
 			mysql_query ($sql) or die ('Erreur SQL !'.$sql.'<br />'.mysql_error());
 
 			mysql_close();
