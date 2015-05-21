@@ -13,7 +13,7 @@
 			$base = mysql_connect ('localhost', 'phpadmin', 'groseillenu');
 			mysql_select_db ('Loutre', $base) ;
 			// lancement de la requete
-			$sql = "SELECT solde, nom FROM Personne WHERE Personne.nom='$nom'";
+			$sql = "SELECT solde, nom FROM Personne";
 			mysql_query ($sql) or die ('Erreur SQL !'.$sql.'<br />'.mysql_error());
 			
 			if(mysql_num_rows($reponse)){
