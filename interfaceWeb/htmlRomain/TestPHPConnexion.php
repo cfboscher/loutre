@@ -21,7 +21,7 @@
 			$base = mysql_connect ('localhost', 'phpadmin', 'groseillenu');
 			mysql_select_db ('Loutre', $base) ;
 			// lancement de la requete
-			//$sql = 'SELECT * FROM Personne WHERE UCASE(SUBSTR(Personne.Prenom, 0, 1)) = UCASE(SUBSTR('$nom',0,1)) AND UCASE(SUBSTR(Personne.Nom,1)) = UCASE(SUBSTR('$nom',1))';
+			$sql = 'SELECT * FROM Personne WHERE UCASE(SUBSTR(Personne.Nom,1)) = UCASE(SUBSTR('$nom',1))';
 			mysql_query ($sql) or die ('Erreur SQL !'.$sql.'<br />'.mysql_error());
 
 			mysql_close();
