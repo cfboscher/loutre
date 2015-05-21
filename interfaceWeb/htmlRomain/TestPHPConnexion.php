@@ -20,7 +20,7 @@
 				echo "Il y a qqch";
 			}
 			else{
-				header('Location: /marie/Connexion.html');
+				//header('Location: /marie/Connexion.html');
 			}
 
 			mysql_close();
