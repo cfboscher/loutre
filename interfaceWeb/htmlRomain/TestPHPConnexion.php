@@ -16,7 +16,7 @@
 				header('Location: /marie/Admin/Accueil.html');
 			}
 			
-			$base = mysql_connect ('localhost', 'python', 'jambeo');
+			$base = mysql_connect ('localhost', 'phpuser', 'lambda');
 			mysql_select_db ('Loutre', $base) ;
 			// lancement de la requete
 			$sql = 'SELECT * FROM Personne WHERE UCASE(SUBSTR(Personne.Prenom, 0, 1)) = UCASE(SUBSTR('$nom',0,1)) AND UCASE(SUBSTR(Personne.Nom,1)) = UCASE(SUBSTR('$nom',1))';
