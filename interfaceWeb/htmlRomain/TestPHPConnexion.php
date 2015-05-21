@@ -19,6 +19,9 @@
 			if(mysql_num_rows($reponse)){
 				echo "Il y a qqch";
 			}
+			else{
+				echo "vide";
+			}
 
 			mysql_close();
 	?>
@@ -26,14 +29,14 @@
 <html>
 	<head>
 		<title>LOUTRE</title>
-		<link rel="stylesheet" href="../Ressources/styleLoutre.css" />
+		<link rel="stylesheet" href="./Ressources/styleLoutre.css" />
 	</head>
 	
 	<body >
 			
 		<div id="logo">
 		
-			<a href="../Connexion.html"><img src="../Ressources/LogoLoutre.jpg" alt="Logo Loutre" style="width:800px"></a>
+			<a href="../Connexion.html"><img src="./Ressources/LogoLoutre.jpg" alt="Logo Loutre" style="width:800px"></a>
 		</div>
 
 		<div id="page-wrap">
