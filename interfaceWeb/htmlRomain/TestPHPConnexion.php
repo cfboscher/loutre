@@ -7,7 +7,7 @@
 			
 			if($nom == 'admin')
 			{
-				header('Location: /marie/Admin/Accueil.html');
+				header('Location: /marie/Admin/Accueil.php');
 			}
 			
 			$base = mysql_connect ('localhost', 'phpadmin', 'groseillenu');
