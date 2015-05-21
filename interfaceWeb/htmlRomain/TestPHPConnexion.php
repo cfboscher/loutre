@@ -1,9 +1,3 @@
-<html>	
-
-	<head>
-		<title>LOUTRE</title>
-	</head>
-	
 	<?php
 						
 			echo "Nom d'utilisateur : ".$_POST[username];
@@ -25,17 +19,26 @@
 			mysql_close();
 	?>
 	
-		<br>
-		Si la page ne se charge pas au bout de 5 secondes, cliquez ici : <br>
-		<form method="post" action="/marie/Client/Client.php">
-
-			<p><input type="hidden" name="name" value="<?php echo $nom;?>"/></p>
-			<p><input type="hidden" name="identity" value="<?php echo $identifiant;?>"/></p>
-
-			<input type="submit" value="Continuer">
-
-
-		</form>
-		
+<html>
+	<head>
+		<title>LOUTRE</title>
+		<link rel="stylesheet" href="../Ressources/styleLoutre.css" />
+	</head>
 	
+	<body >
+			
+		<div id="logo">
+		
+			<a href="../Connexion.html"><img src="../Ressources/LogoLoutre.jpg" alt="Logo Loutre" style="width:800px"></a>
+		</div>
+
+		<div id="page-wrap">
+			<h1>Bonjour <?php echo $id['nom']; ?>, heureux de vous revoir!</h1>
+			<h2>Il vous reste <?php echo $id['solde']; ?> groseilles sur votre compte.</h2>
+		</div>
+
+		<a href="../Connexion.html"><button> Deconnexion </button></a><br>
+
+
+	</body>
 </html>
