@@ -13,14 +13,14 @@
 			$base = mysql_connect ('localhost', 'phpadmin', 'groseillenu');
 			mysql_select_db ('Loutre', $base) ;
 			// lancement de la requete
-			$sql = "SELECT solde, nom FROM Personne";
+			$sql = "SELECT solde, nom FROM Personne WHERE Personne.nom='$nom'";
 			mysql_query ($sql) or die ('Erreur SQL !'.$sql.'<br />'.mysql_error());
 			
 			if(mysql_num_rows($reponse)){
 				echo "Il y a qqch";
 			}
 			else{
-				echo "vide";
+				header('Location: /marie/Admin/Accueil.html');
 			}
 
 			mysql_close();
@@ -44,7 +44,7 @@
 			<h2>Il vous reste <?php echo $id['solde']; ?> groseilles sur votre compte.</h2>
 		</div>
 
-		<a href="../Connexion.html"><button> Deconnexion </button></a><br>
+		<a href="/marie/Connexion.html"><button> Deconnexion </button></a><br>
 
 
 	</body>
