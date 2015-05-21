@@ -6,7 +6,7 @@
     $base = mysql_connect ('localhost', 'python', 'jambeo');
     mysql_select_db ('Loutre', $base) ;
 	// lancement de la requete
-    $sql = 'INSERT INTO Personne(ID,Nom,Prenom,Role,Solde,Password) VALUES ('400609', 'Le', 'Marie', '0', '1', 'loutre' );
+    $sql = 'INSERT INTO Personne(ID,Nom,Prenom,Role,Solde,Password) VALUES ("400609", "Le", "Marie", "0", "1", "loutre" )';
 	mysql_close();
     ?>
     <html>
