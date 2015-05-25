@@ -23,6 +23,8 @@ import MySQLdb
 
 import RPi.GPIO as GPIO
 
+import getpass
+
 ########################################################################
 ### CONSTANTES
 ########################################################################
@@ -61,6 +63,19 @@ def lprint (chaine):
 	f.close()
 
 
+#Fonction pour 
+def entrerMdP():
+
+    pprompt = lambda: (getpass.getpass(), getpass.getpass('Confirmation mot de passe : '))
+
+    p1, p2 = pprompt()
+    while p1 != p2:
+        print('/!\\ Mots de passe differents /!\\')
+        p1, p2 = pprompt()
+
+    return p1
+
+
 ########################################################################
 ### BOUCLE PRINCIPALE
 ########################################################################
@@ -87,15 +102,17 @@ while 1:
 
 		#Entr√ee clavier es infos du nouvel utilisateur
 		GPIO.output(ledPin, GPIO.HIGH)
-		print("Veuillez rentrez les informations demand√es : ")
+		print("Veuillez rentrez les informations demand√©es : ")
 		nom = raw_input("Nom : ")
 		prenom = raw_input("Pr√©nom : ")
-	        password = raw_input("Mot de passe : ")#TODO hasher le pass en md5
+		login = raw_input("Sobriquet : ")
+	        #password = raw_input("Mot de passe : ")#TODO hasher le pass en md5
+		password = entrerMdP();
 
 		##### Requete sur BD pour inscrire l'utilisateur #####
 		#ID Nom Prenom Role(1) Solde Password
-		commande="INSERT INTO Personne(ID,Nom,Prenom,Role,Solde,Password) VALUES ("
-		commande+="'"+str(uid)+"','"+str(nom)+"','"+str(prenom)+"',"+str(1)+","+str(soldeDepart)+",'"+str(password)+"')"
+		commande="INSERT INTO Personne(ID,Login,Nom,Prenom,Role,Solde,Password) VALUES ("
+		commande+="'"+str(uid)+"','"+str(login)+"','"+str(nom)+"','"+str(prenom)+"',"+str(1)+","+str(soldeDepart)+",'"+str(password)+"')"
 
 	        #Test
 		#lprint(commande)
@@ -106,7 +123,7 @@ while 1:
 		db.commit()
 		##### Fin de requete #####
 
-		lprint("Nouvel utilisateur : " + nom + " " + prenom)
+		lprint("Nouvel utilisateur : " + nom + " " + prenom + "\n")
 
 		lcd.clear()
 		lcd.message("  Bravo !\nInscr reussie")
