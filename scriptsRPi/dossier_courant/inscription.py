@@ -66,11 +66,11 @@ def lprint (chaine):
 #Fonction pour 
 def entrerMdP():
 
-    pprompt = lambda: (getpass.getpass(), getpass.getpass('Confirmation mot de passe : '))
+    pprompt = lambda: (getpass.getpass('Mot de passe : '), getpass.getpass('Confirmation mot de passe : '))
 
     p1, p2 = pprompt()
     while p1 != p2:
-        print('/!\\ Mots de passe differents /!\\')
+        print('/!\\ Mots de passe diff√©rents /!\\')
         p1, p2 = pprompt()
 
     return p1
@@ -100,7 +100,7 @@ while 1:
 		lcd.clear()
 		lcd.message("Nouvel util :\n"+str(uid))
 
-		#Entr√ee clavier es infos du nouvel utilisateur
+		#Entr√ee clavier des infos du nouvel utilisateur
 		GPIO.output(ledPin, GPIO.HIGH)
 		print("Veuillez rentrez les informations demand√©es : ")
 		nom = raw_input("Nom : ")
