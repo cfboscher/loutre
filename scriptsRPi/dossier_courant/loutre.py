@@ -20,6 +20,8 @@ from Adafruit_CharLCD import Adafruit_CharLCD
 import MySQLdb
 from MySQLdb.constants import FIELD_TYPE
 
+import RPi.GPIO as GPIO
+
 ########################################################################
 ### CONSTANTES
 ########################################################################
@@ -44,7 +46,13 @@ prix_boisson= 0.42 #TODO faire venir de la bd
 lcd = Adafruit_CharLCD()
 lcd.begin(16, 1)
 
+#Init pour l'import de float depuis la BD
 my_conv = { FIELD_TYPE.FLOAT: float }
+
+#Init de la LED
+ledPin=13
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(ledPin, GPIO.OUT)
 
 ########################################################################
 ### FONCTIONS PERSONNELLES
@@ -77,7 +85,10 @@ while 1:
 	try:
 		lcd.clear()
 		lcd.message("Bonjour ! Je\nsuis une loutre")
-		sleep(0.1)
+		GPIO.output(ledPin,GPIO.HIGH)
+		sleep(0.5)
+		GPIO.output(ledPin,GPIO.LOW)
+		sleep(0.5)
 
 		#Ouverture du lecteur NFC
 		mifare=nxppy.Mifare()
@@ -106,8 +117,10 @@ while 1:
 		lprint("Argent restant : ")
 		lcd.message(str(argentRestant) + unitePaiement)
 		lprint(str(argentRestant) + unitePaiement)
+		GPIO.output(ledPin,GPIO.HIGH)
 		sleep(tempoLect1)
-		
+		GPIO.output(ledPin,GPIO.LOW)
+
 		instantLecture1=datetime.datetime.utcnow()
 		
 		a = True
@@ -144,7 +157,9 @@ while 1:
 					lcd.message(str(prix_boisson)+unitePaiement+"\n")
 					lcd.message("ont ete prelevees.")
 					lprint(str(prix_boisson)+unitePaiement+"ont ete prelevees")
+					GPIO.output(ledPin,GPIO.HIGH)
 					sleep(tempoPrelev)
+					GPIO.output(ledPin,GPIO.LOW)
 					
 			#Tant que on ne lit pas de carte, ne rien faire et recommencer
 			except nxppy.SelectError:

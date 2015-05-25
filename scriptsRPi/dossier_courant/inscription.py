@@ -21,6 +21,8 @@ from Adafruit_CharLCD import Adafruit_CharLCD
 
 import MySQLdb
 
+import RPi.GPIO as GPIO
+
 ########################################################################
 ### CONSTANTES
 ########################################################################
@@ -34,6 +36,11 @@ soldeDepart=5.0
 #Initialisation de l'√©cran LCD
 lcd = Adafruit_CharLCD()
 lcd.begin(16, 1)
+
+#Init led
+ledPin=13
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(ledPin, GPIO.OUT)
 
 ########################################################################
 ### FONCTIONS PERSONNELLES
@@ -66,7 +73,10 @@ while 1:
 	try:
 		lcd.clear()
 		lcd.message(" Inscription a\n     LOUTRE")
-		sleep(0.1)
+		GPIO.output(ledPin, GPIO.HIGH)
+		sleep(0.5)
+		GPIO.output(ledPin, GPIO.LOW)
+		sleep(0.5)
 		#Ouverture du lecteur NFC
 		mifare=nxppy.Mifare()
 		uid = mifare.select()
@@ -76,7 +86,8 @@ while 1:
 		lcd.message("Nouvel util :\n"+str(uid))
 
 		#Entr√ee clavier es infos du nouvel utilisateur
-		print("Veuillez rentrez les informations demand√©s : ")
+		GPIO.output(ledPin, GPIO.HIGH)
+		print("Veuillez rentrez les informations demand√es : ")
 		nom = raw_input("Nom : ")
 		prenom = raw_input("Pr√©nom : ")
 	        password = raw_input("Mot de passe : ")#TODO hasher le pass en md5
@@ -99,8 +110,15 @@ while 1:
 
 		lcd.clear()
 		lcd.message("  Bravo !\nInscr reussie")
-		sleep(5)
-									
+		
+		cmptr=0
+		while(cmptr<10):
+			cmptr+=1
+			GPIO.output(ledPin, GPIO.HIGH)
+			sleep(0.3)
+			GPIO.output(ledPin, GPIO.LOW)
+			sleep(0.3)
+											
 	#Tant que on ne lit pas de carte, ne rien faire et recommencer
 	except nxppy.SelectError:
 		pass
